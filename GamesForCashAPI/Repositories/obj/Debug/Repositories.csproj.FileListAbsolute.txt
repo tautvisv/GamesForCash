@@ -1,7 +1,0 @@
-E:\Darbai\c#\HackerGames\GamesForCashAPI\Repositories\bin\Debug\Repositories.dll
-E:\Darbai\c#\HackerGames\GamesForCashAPI\Repositories\bin\Debug\Repositories.pdb
-E:\Darbai\c#\HackerGames\GamesForCashAPI\Repositories\bin\Debug\Models.dll
-E:\Darbai\c#\HackerGames\GamesForCashAPI\Repositories\bin\Debug\Models.pdb
-E:\Darbai\c#\HackerGames\GamesForCashAPI\Repositories\obj\Debug\Repositories.csprojResolveAssemblyReference.cache
-E:\Darbai\c#\HackerGames\GamesForCashAPI\Repositories\obj\Debug\Repositories.dll
-E:\Darbai\c#\HackerGames\GamesForCashAPI\Repositories\obj\Debug\Repositories.pdb
