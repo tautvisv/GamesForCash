@@ -161,6 +161,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\Games\CheckersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -170,6 +171,7 @@
     <Compile Include="Models\GameDto\MessageDto.cs" />
     <Compile Include="Models\GameDto\MiniItemDto.cs" />
     <Compile Include="Models\GameDto\UserDto.cs" />
+    <Compile Include="Models\Account\LoginModel.cs" />
     <Compile Include="Models\Home\IndexViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StartUp.cs" />
@@ -190,6 +192,8 @@
     <Content Include="Content\Site.less" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <None Include="Views\Account\Index.cshtml" />
+    <None Include="Views\Checkers\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

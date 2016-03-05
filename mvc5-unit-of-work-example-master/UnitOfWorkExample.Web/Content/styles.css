@@ -1,0 +1,89 @@
+/*------------------------------------*\
+	#OVERRIDE STLES
+	This style sheet can be used for two different functions:
+	1. Override specific Bootstrap styles.
+	2. Add your own styles.
+\*------------------------------------*/
+
+/**
+ * Padding-top is required if using .navbar-fixed-top.
+ * This can be removed Remove if using .navbar-static-top.
+ * The height may need to be changed if the height of you
+ * navigation changes.
+*/
+
+body { padding-top: 70px; }
+
+
+
+/**
+ * Bootstrap requires a containing element to wrap site contents 
+ * and house the grid system. You may choose one of two containers.
+ * Use .container for a responsive fixed width container.
+ * Use .container-fluid for a full width container.
+
+ * If using container-fluid, you may need to set a maximum width, 
+ * so that the container will not spread to the entire viewport.
+*/
+
+.container-fluid { max-width: 1200px; }
+
+.buttons {
+	font-size: 20pt;
+	width: 200px;
+	height: 100px;
+	margin-right: 20px;
+	margin-top: 10px;
+	margin-bottom: 10px
+}
+.btn-div {
+	width: 50%;
+    margin: auto;
+}
+.header-buttons {
+	padding: 10px;
+	float: right;
+}
+.form {
+	display: inline;
+}
+.header-text {
+	display : inline;
+	color: #f2dede;
+	padding-right: 10px;
+}
+.register {
+	text-decoration: none;
+	color: red;
+}
+.register:hover {
+	color: green;
+	text-decoration: none;
+	
+}
+.login {
+	color : blue;
+	text-decoration: none;
+}
+.login:hover {
+	color: green;
+	text-decoration: none;
+}
+.error {
+	color: red;
+	font-size: 15pt;
+}
+.star {
+	color: red;
+	font-size: 12pt;
+}
+.language a {
+	padding-left: 15px;
+	display: inline;
+	text-decoration: none;
+	font-size: 15pt;
+	color: black;
+}
+.language a:hover {
+	color: red;
+}
