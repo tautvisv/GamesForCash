@@ -1,0 +1,19 @@
+﻿@model UnitOfWorkExample.Web.Models.Account.LoginModel
+
+@{
+    ViewBag.Title = "title";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("Login", "Account", FormMethod.Post))
+{
+    <fieldset>
+        <legend>Login</legend>
+        @Html.LabelFor(t=>t.Username)
+        @Html.TextBoxFor(t => t.Username)
+        @Html.LabelFor(t => t.Password)
+        @Html.TextBoxFor(t => t.Password, new {type="password"})
+
+        <input type="submit" value="Login"/>
+    </fieldset>
+}

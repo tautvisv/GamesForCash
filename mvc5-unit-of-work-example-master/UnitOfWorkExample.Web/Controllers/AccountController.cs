@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Linq;
+using System.Security.Principal;
 using System.Web.Mvc;
 using UnitOfWorkExample.Domain.Entities;
 using UnitOfWorkExample.Domain.Services;
+using UnitOfWorkExample.Web.Models.Account;
 
 namespace UnitOfWorkExample.Web.Controllers
 {
@@ -16,31 +15,32 @@ namespace UnitOfWorkExample.Web.Controllers
         {
             _userService = userService;
         }
-        // GET: Account
-        public string Index()
+
+        [HttpGet]
+        public ActionResult Index()
         {
-            // ensure there are products for the example
-            var users = _userService.GetAll();
-            if (!users.Any())
+            return View(new LoginModel());
+        }
+
+        [HttpPost]
+        public string Login(LoginModel model)
+        {
+            if (HttpContext.User.Identity.IsAuthenticated)
             {
-                _userService.Create(new User { Name = "User 1" });
-                _userService.Create(new User { Name = "User 2" });
-                _userService.Create(new User { Name = "User 3" });
+                return "Authenti";
             }
-            return users.Count.ToString();
+            return "Unauthorized";
         }
-        // GET: Account
-        public ActionResult Login()
-        {
-            return null;
-        }
-        // GET: Account
+
+        [HttpGet]
+        [Authorize]
         public ActionResult Logout()
         {
             return null;
         }
-        // GET: Account
-        public ActionResult Register()
+
+        [HttpPost]
+        public ActionResult Register(string username, string password)
         {
             return null;
         }
