@@ -28,7 +28,7 @@ body { padding-top: 70px; }
 
 .container-fluid { max-width: 1200px; }
 .well {
-    width: 500px;
+    width: 400px;
     margin: auto;
 }
 .buttons {
