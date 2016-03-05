@@ -38,7 +38,11 @@ namespace UnitOfWorkExample.Web.Controllers
         {
             return null;
         }
-
+        [HttpGet]
+        public ActionResult Register()
+        {
+            return View();
+        }
         [HttpPost]
         public ActionResult Register(string username, string password)
         {
