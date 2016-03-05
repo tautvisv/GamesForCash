@@ -1,0 +1,91 @@
+﻿.container2 {
+    background-color: #99CCFF;
+    border: thick solid #808080;
+    padding: 20px;
+    margin: 20px;
+    overflow-x: hidden;
+}
+
+.game-container {
+    width: 250px;
+    height: 250px;
+    display: block;
+    background: #cff;
+    position: relative;
+}
+
+.item {
+    width: 50px;
+    height: 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    /*overflow-x: hidden;*/
+    cursor: pointer;
+    opacity: 0.7;
+    color: black;
+    font-weight: bold;
+}
+
+
+/*Ghosts*/
+
+    .blinky{ background-color: red;}
+.clyde{ background-color: orange;}
+.inky{ background-color: cyan;}
+.pinky{ background-color: pink;}
+
+.ghost{
+  border-radius: 100% 100% 0 0;
+  display: inline-block;
+  height: 40px;
+  margin: 5px;
+  position: relative;
+  width: 30px;
+}
+
+.eyes{
+  height: 15px;
+  left: 50%;
+  margin-left: -11px;
+  position: absolute;
+  width: 22px;
+  top: 12px;
+}
+
+.eye{
+  background: #fff;
+  border-radius: 100%;
+  height: 13px;
+  width: 10px;
+}
+
+.iris{
+  background: blue;
+  border-radius: 100%;
+  height: 7px;
+  position: absolute;
+  width: 7px;
+  top: 2px;
+}
+
+.leftEye{ float: left; }
+.leftEye .iris{ left: 1px; }
+
+.rightEye{float: right; }
+.rightEye .iris{ right: 2px; }
+
+.ghostTail{
+  background-repeat: repeat-x;
+  bottom: -10px;
+  height: 10px;
+  position: absolute;
+  width: 30px;
+}
+
+.blinky .ghostTail{
+  background:
+    linear-gradient(-60deg, transparent 75%, red 75%) 0 50%,
+    linear-gradient( 60deg, transparent 75%, red 75%) 0 50%;
+  background-size:10px 10px, 10px 10px !important;
+}
