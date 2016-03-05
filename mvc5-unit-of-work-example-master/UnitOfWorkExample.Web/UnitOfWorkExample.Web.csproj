@@ -148,6 +148,7 @@
     <Content Include="Fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Fonts\glyphicons-halflings-regular.woff2" />
     <None Include="Views\Account\Index.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
     <None Include="Views\Checkers\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

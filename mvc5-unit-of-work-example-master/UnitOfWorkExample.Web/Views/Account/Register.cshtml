@@ -1,0 +1,74 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h3>Registration form</h3>
+<script>
+	function validate(form)
+	{
+		fail = validateNick(form.nick.value);
+		fail += validateName(form.name.value);
+		fail += validateSurname(form.surname.value);
+		fail += validatePassword(form.pass.value);
+
+		if (fail == "") return true;
+		else { document.getElementById("fail").innerHTML = fail; return false; }
+	}
+	function validateNick(field)
+	{
+		if (field == "") return "No Nickname was entered.<br/>";
+		else if (field.length < 3)
+		return "Nickname must be at least 3 characters.<br/>";
+		else if (/[^a-zA-Z0-9_-]/.test(field))
+		return "Only a-z, A-Z, 0-9, - and _ allowed in Nickname.<br/>";
+		return "";
+	}
+	function validateName(field)
+	{
+		if (field == "") return "No Name was entered.<br/>";
+		else if (/[^a-zA-Z0-9_-]/.test(field))
+		return "Only a-z, A-Z, 0-9, - and _ allowed in Name.<br/>";
+		return "";
+	}
+	function validateSurname(field)
+	{
+		if (field == "") return "No Surname was entered.<br/>";
+		else if (/[^a-zA-Z0-9_-]/.test(field))
+		return "Only a-z, A-Z, 0-9, - and _ allowed in Surname.<br/>";
+		return "";
+	}
+	function validatePassword(field)
+	{
+		if (field == "") return "No Password was entered.<br/>";
+		else if (field.length < 6)
+		return "Password must be at least 6 characters.<br/>";
+		else if (/[^a-zA-Z0-9_-]/.test(field))
+		return "Only a-z, A-Z, 0-9, - and _ allowed in Password.<br/>";
+		return "";
+	}
+</script>
+<div class="well">
+    <form onsubmit="return validate(this)">
+        <div class="form-group">
+            <label for="nick">Nickname<span class="star">*</span></label>
+            <input type="text" class="form-control" id="nick" name="nick" placeholder="Enter nickname">
+            <p class="help-block">You will use nickname to login</p>
+        </div>
+        <div class="form-group">
+            <label for="name">Name<span class="star">*</span></label>
+            <input type="text" class="form-control" id="name" name="name" placeholder="Enter name">
+        </div>
+        <div class="form-group">
+            <label for="surname">Surname<span class="star">*</span></label>
+            <input type="text" class="form-control" id="surname" name="surname" placeholder="Enter surname">
+        </div>
+        <div class="form-group">
+            <label for="pass">Password<span class="star">*</span></label>
+            <input type="password" class="form-control" id="pass" name="pass" placeholder="Enter password">
+            <p class="help-block">Password in database is not hashed! Use simple password</p>
+        </div>
+        <p><span class="star">*</span> Has to be submitted</p>
+        <button type="submit" class="btn btn-primary">Register</button>
+    </form>
+</div>
+<p class="error" id="fail"></p>
+
