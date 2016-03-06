@@ -59,7 +59,7 @@ function initializeGame()
     
     // Set the footer
     var footer = document.getElementsByTagName("footer")[0];
-    footer.innerHTML = "&#169; 2011 Zubair Valimohideen";
+    footer.innerHTML = "&#169; 2016 HackerGames Kaunas";
     if(BOARD_HEIGHT > browserHeight()) {
         footer.style.top = BOARD_HEIGHT + 2 + "px";
     } else {
@@ -269,6 +269,8 @@ function cursorLoc(e)
 
 function clickPiece(e)
 {
+    //e.x e.y
+    //e.offsetX e.offsetY
     // Get the current square location
     cursorLoc(e);
     
