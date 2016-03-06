@@ -23,7 +23,7 @@ namespace UnitOfWorkExample.Web
             var authCookie = Request.Cookies[FormsAuthentication.FormsCookieName];
             var roleCokie = Request.Cookies["COOKIE!!!!"];
 
-            if (authCookie != null)
+            if (authCookie != null && !string.IsNullOrWhiteSpace(authCookie.Value))
             {
                 try
                 {

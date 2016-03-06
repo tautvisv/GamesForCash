@@ -31,6 +31,10 @@ namespace UnitOfWorkExample.Web.WebSockets
             {
                 Clients.Client(connectionId).broadcastMessage(new MessageDto(name, message, UserHandler.ConnectedIds.Count));
             }
+            foreach (var connectionId in Connections.GetConnections(name))
+            {
+                Clients.Client(connectionId).broadcastMessage(new MessageDto(name, message, UserHandler.ConnectedIds.Count));
+            }
             
 
             // Clients.User("asd").broadCastMessage("test", "teste from send", 5);

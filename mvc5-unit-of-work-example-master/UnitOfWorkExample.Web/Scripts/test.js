@@ -3,6 +3,7 @@
         this.container = $("#"+container);
         this.removePlayer = function (player) {
             $("#auto_gen_" + player.Name).remove();
+            $("#auto_gen_select_" + player.Name).remove();
         }
         var that = this;
         this.addPlayers = function (players) {
@@ -11,6 +12,7 @@
         this.addPlayer = function (player) {
             if (!$("#auto_gen_" + player.Name).length) {
                 that.container.append("<div class='row' id='auto_gen_" + player.Name + "'>" + player.Name + "</div>");
+                $("#who").append("<option id='auto_gen_select_'" + player.Name + "'>" + player.Name + "</option>");
             }
         };
 
@@ -22,10 +24,10 @@
         // Html encode display name and message.
         var encodedName = $('<div />').text(message.Name).html();
         var encodedMsg = $('<div />').text(message.Message).html();
-        var encodedCount = $('<div />').text("Count: " + message.Count).html();
+        //var encodedCount = $('<div />').text("Count: " + message.Count).html();
         // Add the message to the page.
         $('#discussion').append('<li><strong>' + encodedName
-            + '</strong>:&nbsp;&nbsp;' + encodedMsg + '</strong>:&nbsp;&nbsp;' + encodedCount + '</li>');
+            + '</strong>:&nbsp;&nbsp;' + encodedMsg + '</strong>:&nbsp;&nbsp;' + "" + '</li>');
     };
     // Get the user name and store it to prepend to messages.
     $('#displayname').val(window.global.name);
