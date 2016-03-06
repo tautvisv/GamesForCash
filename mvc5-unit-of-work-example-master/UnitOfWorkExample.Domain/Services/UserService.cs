@@ -10,6 +10,7 @@ namespace UnitOfWorkExample.Domain.Services
     {
         IList<User> GetAll();
         User GetById(int id);
+        User GetByUsername(string username);
         void Create(User user);
         void Update(User user);
         void Delete(int id);
@@ -31,6 +32,11 @@ namespace UnitOfWorkExample.Domain.Services
         public User GetById(int id)
         {
             return userRepository.GetById(id);
+        }
+
+        public User GetByUsername(string username)
+        {
+            return userRepository.GetAll().FirstOrDefault(t => t.Name == username);
         }
 
         public void Create(User user)

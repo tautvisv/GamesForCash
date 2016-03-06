@@ -1,8 +1,12 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Security.Principal;
+using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 using UnitOfWorkExample.Domain.Entities;
 using UnitOfWorkExample.Domain.Services;
+using UnitOfWorkExample.Web.Helpers.Security;
 using UnitOfWorkExample.Web.Models.Account;
 
 namespace UnitOfWorkExample.Web.Controllers
@@ -19,21 +23,44 @@ namespace UnitOfWorkExample.Web.Controllers
         [HttpGet]
         public ActionResult Index()
         {
+            if (HttpContext.User.Identity.IsAuthenticated)
+            {
+                return Redirect("/");
+            }
             return View(new LoginModel());
         }
 
         [HttpPost]
-        public string Login(LoginModel model)
+        public ActionResult Login(LoginModel model)
         {
             if (HttpContext.User.Identity.IsAuthenticated)
             {
-                return "Authenti";
+                return Redirect("/");
             }
-            return "Unauthorized";
+            if (model == null)
+                return Redirect("/account/");
+
+            var user = _userService.GetByUsername(model.Username);
+            if (user == null)
+                return Redirect("/account/");
+            if (user.Password == model.Password)
+            {
+                var authTicket = FormsAuthentication.Encrypt(
+                    new FormsAuthenticationTicket(
+                        1,
+                        user.Name,
+                        DateTime.Now, DateTime.Now.AddDays(1).ToUniversalTime(),
+                        true,
+                        user.Roles)
+                    );
+                var cookie = new HttpCookie(FormsAuthentication.FormsCookieName, authTicket);
+                ControllerContext.HttpContext.Response.Cookies.Add(cookie);
+            }
+            return Redirect("/");
         }
 
         [HttpGet]
-        [Authorize]
+        [CustomAuthorization]
         public ActionResult Logout()
         {
             return null;

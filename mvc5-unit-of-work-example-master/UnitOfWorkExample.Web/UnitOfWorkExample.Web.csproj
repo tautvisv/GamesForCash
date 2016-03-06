@@ -176,6 +176,8 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\ExtensionMethods.cs" />
+    <Compile Include="Helpers\Security\CustomAuthorization.cs" />
+    <Compile Include="Helpers\Security\RoleProvider.cs" />
     <Compile Include="Models\GameDto\Coordinates.cs" />
     <Compile Include="Models\GameDto\MessageDto.cs" />
     <Compile Include="Models\GameDto\MiniItemDto.cs" />
@@ -218,7 +220,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="NewFolder1\" />
-    <Folder Include="Views\Account\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\UnitOfWorkExample.Data\UnitOfWorkExample.Data.csproj">
