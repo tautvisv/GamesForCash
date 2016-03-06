@@ -14,7 +14,7 @@ namespace UnitOfWorkExample.Web.Helpers.Security
             {
                 throw new NullReferenceException("HttpContext is null.");
             }
-            httpContext.User = new GenericPrincipal(new GenericIdentity("user", "type"), "roles".Split(new []{","}, StringSplitOptions.RemoveEmptyEntries));
+//            httpContext.User = new GenericPrincipal(new GenericIdentity("user", "type"), "roles".Split(new []{","}, StringSplitOptions.RemoveEmptyEntries));
             return base.AuthorizeCore(httpContext);
         }
     }
