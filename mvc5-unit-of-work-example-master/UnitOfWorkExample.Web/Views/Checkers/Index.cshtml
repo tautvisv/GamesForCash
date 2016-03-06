@@ -1,8 +1,21 @@
 ﻿@model dynamic
 
 @{
-    ViewBag.Title = "title";
+    ViewBag.Title = "Checkers | HTML5";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>title</h2>
+
+
+<script src="~/Scripts/game.js"></script>
+<link href="~/Content/stylesheetCheckers.css" rel="stylesheet" />
+<div onResize="drawGame()" style="clear:both">
+    <canvas id="board">
+        <span id="no_html5">Your Browser Does Not Support HTML5's Canvas Feature. Please Try Again Using Either Chrome Or Safari.</span>
+    </canvas>
+    <div id="score_card"></div>
+    <footer></footer>
+    <script type="text/javascript">
+        initializeGame();
+    </script>
+</div>
