@@ -29,7 +29,7 @@ namespace UnitOfWorkExample.Web.Controllers
                 _productService.Create(new Product { Name = "Product 3" });
             }
 
-            var viewModel = new IndexViewModel();
+            var viewModel = new IndexViewModel(HttpContext.User.Identity.IsAuthenticated, HttpContext.User.Identity.Name);
             viewModel.Products = _productService.GetAll();
 
             return View(viewModel);
