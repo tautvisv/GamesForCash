@@ -63,17 +63,34 @@ namespace UnitOfWorkExample.Web.Controllers
         [CustomAuthorization]
         public ActionResult Logout()
         {
-            return null;
+            if (Request.Cookies[FormsAuthentication.FormsCookieName] != null)
+            {
+                var cookie = new HttpCookie(FormsAuthentication.FormsCookieName);
+                cookie.Expires = DateTime.Now.AddDays(-1);
+                Response.Cookies.Add(cookie);
+            }
+            return new RedirectResult("/", false);
         }
         [HttpGet]
         public ActionResult Register()
         {
             return View();
         }
+
         [HttpPost]
-        public ActionResult Register(string username, string password)
+        public ActionResult Register(RegisterModel model)
         {
-            return null;
+            if (_userService.GetByUsername(model.Username.ToLowerInvariant()) == null)
+            {
+                _userService.Create(new User
+                {
+                    Name = model.Name.ToLowerInvariant(),
+                    Password = model.Password,
+                    Roles = "user"
+                });
+                return Redirect("/");
+            }
+            return Redirect("/account/register");
         }
     }
 }

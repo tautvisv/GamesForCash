@@ -180,6 +180,7 @@
     <Compile Include="Helpers\ExtensionMethods.cs" />
     <Compile Include="Helpers\Security\CustomAuthorization.cs" />
     <Compile Include="Helpers\Security\RoleProvider.cs" />
+    <Compile Include="Models\Account\RegisterModel.cs" />
     <Compile Include="Models\GameDto\Coordinates.cs" />
     <Compile Include="Models\GameDto\MessageDto.cs" />
     <Compile Include="Models\GameDto\MiniItemDto.cs" />
