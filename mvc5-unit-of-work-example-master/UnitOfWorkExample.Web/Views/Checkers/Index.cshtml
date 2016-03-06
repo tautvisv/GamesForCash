@@ -4,5 +4,13 @@
     ViewBag.Title = "title";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<h2>title</h2>
+<!-- SHESS INDEX-->
+<link href="~/Content/stylesheet.css" rel="stylesheet" />
+<script src="~/Scripts/game.js"></script>
+<div onResize="drawGame()">
+    <canvas id="board"></canvas>
+    <div id="score_card"></div>
+    <script type="text/javascript">
+       initializeGame();
+    </script>
+</div>
