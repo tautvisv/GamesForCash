@@ -147,6 +147,7 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\game.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\jquery-1.6.4.min.js" />
@@ -192,6 +193,7 @@
     <Compile Include="WebSockets\ChatHub.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="WebSockets\Data\ConnectionMapping.cs" />
     <Compile Include="WebSockets\Data\UserHandler.cs">
       <SubType>Code</SubType>
     </Compile>
