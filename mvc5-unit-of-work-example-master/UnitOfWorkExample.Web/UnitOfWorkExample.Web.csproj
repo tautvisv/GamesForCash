@@ -138,8 +138,10 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Scripts\game.js" />
     <Content Include="Content\Site.less" />
     <Content Include="Content\styles.css" />
+    <Content Include="Content\stylesheetCheckers.css" />
     <Content Include="Fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\bootstrap.js" />
@@ -176,6 +178,8 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\ExtensionMethods.cs" />
+    <Compile Include="Helpers\Security\CustomAuthorization.cs" />
+    <Compile Include="Helpers\Security\RoleProvider.cs" />
     <Compile Include="Models\GameDto\Coordinates.cs" />
     <Compile Include="Models\GameDto\MessageDto.cs" />
     <Compile Include="Models\GameDto\MiniItemDto.cs" />
