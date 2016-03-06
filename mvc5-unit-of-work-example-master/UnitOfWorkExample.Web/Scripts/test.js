@@ -1,5 +1,4 @@
 ﻿$(function () {
-    var global = {};
     function MessageContainer(container) {
         this.container = $("#"+container);
         this.removePlayer = function (player) {
@@ -29,14 +28,14 @@
             + '</strong>:&nbsp;&nbsp;' + encodedMsg + '</strong>:&nbsp;&nbsp;' + encodedCount + '</li>');
     };
     // Get the user name and store it to prepend to messages.
-    $('#displayname').val(prompt('Enter your name:', ''));
+    $('#displayname').val(window.global.name);
     // Set initial focus to message input box.
     $('#message').focus();
     // Start the connection.
-    global.name = $('#displayname').val();
+    //global.name = $('#displayname').val();
     var playersList = new MessageContainer("players");
     $.connection.hub.start().done(function () {
-        chat.server.wellcome({ Name: global.name, Color: "#ff0" }).done(function (players) {
+        chat.server.wellcome({ Name: window.global.name, Color: "#ff0" }).done(function (players) {
             playersList.addPlayers(players);
             console.log("wellcome done", players);
         });

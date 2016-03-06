@@ -39,6 +39,7 @@ namespace UnitOfWorkExample.Web.WebSockets
         {
             string name = Context.User.Identity.Name;
 
+            Connections.Add(name, Context.ConnectionId);
             UserHandler.ConnectedIds.Add(Context.ConnectionId, new UserDto());
 
             return base.OnConnected();
@@ -54,7 +55,6 @@ namespace UnitOfWorkExample.Web.WebSockets
             user.Name = player.Name;
             user.Color = player.Color;
             Clients.All.addPlayer(player);
-            Connections.Add(player.Name, Context.ConnectionId);
             return UserHandler.ConnectedIds.Values.ToArray();
         }
 
@@ -63,7 +63,7 @@ namespace UnitOfWorkExample.Web.WebSockets
         {
             string name = Context.User.Identity.Name;
 
-            Connections.Remove(UserHandler.ConnectedIds[Context.ConnectionId].Name, Context.ConnectionId);
+            Connections.Remove(name, Context.ConnectionId);
 
             Clients.All.removePlayer(UserHandler.ConnectedIds[Context.ConnectionId]);
             UserHandler.ConnectedIds.Remove(Context.ConnectionId);
