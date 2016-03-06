@@ -29,7 +29,28 @@ $(document).ready(function () {
         global.items = items;
         // Declare a proxy to reference the hub.
         var chat = $.connection.chatHub;
-
+        $("body").keydown(function (e) {
+            var position = global.items[global.name].position();
+            // left arrow
+            switch ((e.keyCode || e.which)) {
+            case 37:
+                position.left--;
+                break;
+            case 38:
+                position.top--;
+                break;
+            case 39:
+                position.left++;
+                break;
+            case 40:
+                position.top++;
+                break;
+            default:
+                return;
+            }
+            //console.log("sendCoords", position);
+            chat.server.sendCoords({ Name: global.name, Position: position });
+        });
         // Create a function that the hub can call to broadcast messages.
         chat.client.broadcastMessage = function (message) {
             // Html encode display name and message.
@@ -49,13 +70,40 @@ $(document).ready(function () {
         global.container = $(".game-container");
         // Start the connection.
         $.connection.hub.start().done(function () {
+            chat.server.wellcome({ Name: global.name, Color: utils.randomHexColor() }).done(function (players) {
+                console.log("wellcome done", players);
+                players.forEach(function (player) {
+                    if (global.items[player.Name]) {
+                        return;
+                    }
+                    var item = utils.createPlayerItem(player.Name, player.Color);
+                    global.items[player.Name] = item;
+                    global.container.append(item);
+                });
+            });
             $('#sendmessage').click(function () {
                 // Call the Send method on the hub.
-                chat.server.send($('#displayname').val(), $('#message').val());
+                chat.server.send($('#displayname').val(), $('#message').val(), $('#who').val());
                 // Clear text box and reset focus for next comment.
                 $('#message').val('').focus();
             });
         });
+        chat.client.GetCoords = function (data) {
+            //console.log("GetCoords", data.Position);
+            global.items[data.Name].css(data.Position);
+        }
+        chat.client.removePlayer = function (player) {
+            console.log("removing", player);
+            var item = global.items[player.Name];
+            item.remove();
+            global.items[player.Name] = null;
+        }
+        chat.client.addPlayer = function (player) {
+            var item = utils.createPlayerItem(player.Name, player.Color);
+            global.items[player.Name] = item;
+            global.container.append(item);
+            console.log("addPlayer", player);
+        }
     };
 
     $(document).ready(initialise(globalItem, Utils.GameLogic));

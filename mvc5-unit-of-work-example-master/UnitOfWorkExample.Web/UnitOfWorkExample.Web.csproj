@@ -187,6 +187,7 @@
     <Compile Include="WebSockets\ChatHub.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="WebSockets\Data\ConnectionMapping.cs" />
     <Compile Include="WebSockets\Data\UserHandler.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -218,7 +219,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="NewFolder1\" />
-    <Folder Include="Views\Account\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\UnitOfWorkExample.Data\UnitOfWorkExample.Data.csproj">
